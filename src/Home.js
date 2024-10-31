@@ -54,7 +54,7 @@ const Home = () => {
 
     useEffect(() => {
         console.log("useEffect run");
-    })
+    }, [posts])
 
     return (
         <div className="Home">
