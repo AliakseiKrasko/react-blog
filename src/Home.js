@@ -46,19 +46,20 @@ const Home = () => {
         }
     ])
 
-    const handleDelete = (id) => {
-        console.log("Delete!", id);
-        const newPosts = posts.filter((post) => post.id !== id)
-        setPosts(newPosts);
-    }
 
     useEffect(() => {
         console.log("useEffect run");
-    }, [posts])
+
+        fetch("http://localhost:8000/post").then(res => {
+            return res.json()
+        }).then(data => {
+            console.log(data)
+        })
+    }, [])
 
     return (
         <div className="Home">
-            <BlogList posts={posts} handleDelete={handleDelete} />
+            <BlogList posts={posts} />
         </div>
 
     );
